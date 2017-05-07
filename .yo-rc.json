@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "heartyoh",
+      "authorEmail": "heartyoh@hatiolab.com",
+      "authorUrl": "hatiolab.com"
+    }
+  }
+}
