@@ -4,18 +4,24 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 const path = require('path');
 
+function classname(str) {
+  return str.replace(/-/g, ' ').replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
+    return letter.toUpperCase();
+  }).replace(/\s+/g, '');
+}
+
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the smashing ' + chalk.red('generator-things') + ' generator!'
+      'Welcome to the smashing ' + chalk.red('generator-things:scene-component') + ' generator!'
     ));
 
     const prompts = [{
       type    : 'input',
       name    : 'componentName',
-      message : 'Your component name?',
-      default : this.appname // Default to current folder name
+      message : 'Your scene-component name?',
+      default : this.appname.replace(/ /g, '-') // Default to current folder name
     }, {
       type    : 'input',
       name    : 'username',
@@ -24,39 +30,26 @@ module.exports = class extends Generator {
     }];
 
     return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
-      let componentName = props.componentName.replace(/ /g, '-');
-      let componentTagName = componentName.replace('things-scene-', '');
-      let componentClassName = componentTagName.replace(/\b\w/g, l => l.toUpperCase());
 
-      console.log(componentName, componentClassName, componentTagName)
+      let componentName = props.componentName;
+      let componentTypeName = componentName.replace('things-scene-', '');
+      let componentClassName = classname(componentTypeName);
 
       this.props = props;
       this.props.componentName = componentName;
-      this.props.componentTagName = componentTagName;
+      this.props.componentTypeName = componentTypeName;
       this.props.componentClassName = componentClassName;
     });
   }
 
   writing() {
-    // this.fs.copy([
-    //   this.templatePath() + '/**',
-    //   this.templatePath() + '/**/.*',
-    //   '!**/{gulpfile.js,bower.json,package.json,.git,.npmignore,.gitignore,wct.conf.js,docs,test}/**'],
-    //   this.destinationPath()
-    // );
 
-    // Used by component template
     var tpl = this.props;
-    // {
-    //   componentName: this.props.componentName,
-    //   username: this.props.username
-    // };
 
     this.fs.copyTpl([
       this.templatePath() + '/**',
       this.templatePath() + '/**/.*',
-      '!**/{.DS_Store,_things-scene-component.html}/**'],
+      '!**/{.DS_Store,_*}/**'],
       this.destinationPath(),
       tpl
     );
@@ -74,8 +67,14 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath('src/_component.html'),
-      this.destinationPath('src/', this.props.componentTagName + '.js'),
+      this.templatePath('src/_component.js'),
+      this.destinationPath('src/', this.props.componentTypeName + '.js'),
+      tpl
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('test/unit/_test-component.js'),
+      this.destinationPath('test/unit', 'test-' + this.props.componentTypeName + '.js'),
       tpl
     );
   }

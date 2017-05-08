@@ -1,10 +1,10 @@
 {
   "name": "<%= componentName %>",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "authors": [
     "Hatio Lab. <heartyoh@hatiolab.com>"
   ],
-  "description": "An particular component for things-scene.",
+  "description": "An <%= componentTypeName %> component for things-scene.",
   "keywords": [
     "things-scene",
     "web-component",
