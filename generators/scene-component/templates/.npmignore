@@ -2,6 +2,3 @@ bower_components
 node_modules
 npm-debug.log
 <%= componentName %>.js
-src
-test
-demo

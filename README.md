@@ -16,9 +16,9 @@ Then generate your new things-scene-component project:
 yo things:scene-component
 ```
 
-## 로컬로 인스톨하는 경우
+## 로컬로 인스톨하는 경우 (generator-things 개발시 권장)
 
-먼저, https://github.com/heartyoh/generator-things 로부터 generator-things 프로젝트를 설치한다.
+먼저, https://github.com/hatiolab/generator-things 로부터 generator-things 프로젝트를 설치한다.
 
 로컬에 설치된 generator-things 폴더에서 npm link 를 실행한다.
 
