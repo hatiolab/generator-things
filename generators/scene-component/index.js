@@ -5,7 +5,7 @@ const yosay = require('yosay');
 const path = require('path');
 
 function classname(str) {
-  return str.replace(/-/g, ' ').replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
+  return str.replace(/-/g, ' ').replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
     return letter.toUpperCase();
   }).replace(/\s+/g, '');
 }
@@ -18,19 +18,18 @@ module.exports = class extends Generator {
     ));
 
     const prompts = [{
-      type    : 'input',
-      name    : 'componentName',
-      message : 'Your scene-component name?',
-      default : this.appname.replace(/ /g, '-') // Default to current folder name
+      type: 'input',
+      name: 'componentName',
+      message: 'Your scene-component name?',
+      default: this.appname.replace(/ /g, '-') // Default to current folder name
     }, {
-      type    : 'input',
-      name    : 'username',
-      message : 'What\'s your Github username',
-      store   : true
+      type: 'input',
+      name: 'username',
+      message: 'What\'s your Github username',
+      store: true
     }];
 
     return this.prompt(prompts).then(props => {
-
       let componentName = props.componentName;
       let componentTypeName = componentName.replace('things-scene-', '');
       let componentClassName = classname(componentTypeName);
@@ -43,7 +42,6 @@ module.exports = class extends Generator {
   }
 
   writing() {
-
     var tpl = this.props;
 
     this.fs.copyTpl([

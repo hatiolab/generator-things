@@ -12,10 +12,10 @@ module.exports = class extends Generator {
     ));
 
     const prompts = [{
-      type    : 'input',
-      name    : 'layoutName',
-      message : 'Your scene-layout name?',
-      default : this.appname // Default to current folder name
+      type: 'input',
+      name: 'layoutName',
+      message: 'Your scene-layout name?',
+      default: this.appname // Default to current folder name
     }];
 
     return this.prompt(prompts).then(props => {
@@ -32,7 +32,6 @@ module.exports = class extends Generator {
   }
 
   writing() {
-
     var tpl = this.props;
 
     this.fs.copyTpl([
