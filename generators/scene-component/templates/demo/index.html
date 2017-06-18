@@ -18,8 +18,9 @@ Copyright © 2017 HatioLab Inc. All rights reserved.
 
     <link rel="import" href="./<%= componentName %>.html">
 
-    <style is="custom-style">
-
+    <link rel="import" href="./things-theme.html">
+    
+    <style is="custom-style" include="things-theme">
     things-scene-viewer {
       display: block;
       width: 640px;
@@ -74,8 +75,8 @@ Copyright © 2017 HatioLab Inc. All rights reserved.
         });
 
         app.model = {
-          width: 500,
-          height: 500,
+          width: 640,
+          height: 480,
           components: [{
             type: '<%= componentTypeName %>',
             top: 100,
