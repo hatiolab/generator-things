@@ -57,6 +57,12 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
+      this.templatePath('_gitignore'),
+      this.destinationPath('.gitignore'),
+      tpl
+    );
+
+    this.fs.copyTpl(
       this.templatePath('_things-scene-component.html'),
       this.destinationPath(this.props.componentName + '.html'),
       tpl
