@@ -1,3 +1,7 @@
+/*
+ * Copyright © 2017 HatioLab Inc. All rights reserved.  
+ */
+
 'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');

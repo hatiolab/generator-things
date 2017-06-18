@@ -1,3 +1,7 @@
+/*
+ * Copyright © 2017 HatioLab Inc. All rights reserved.  
+ */
+
 import './util'
 
 import { expect } from 'chai'
