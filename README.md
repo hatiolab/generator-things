@@ -35,7 +35,7 @@ $ yo things:things-scene-component  # 컴포넌트를 만든다.
 
 ## License
 
-MIT © [heartyoh](hatiolab.com)
+EULA © [Hatiolab](http://things-scene.hatiolab.com/EULA/)
 
 
 [npm-image]: https://badge.fury.io/js/generator-things.svg

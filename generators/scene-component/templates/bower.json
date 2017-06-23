@@ -12,7 +12,7 @@
     "seed"
   ],
   "main": "<%= componentName %>.html",
-  "license": "http://hatiolab.github.io/things-scene/LICENSE.txt",
+  "license": "http://things-scene.hatiolab.com/EULA/",
   "homepage": "https://github.com/ThingsElements/<%= componentName %>/",
   "ignore": [
     "/.*",
