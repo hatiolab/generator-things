@@ -1,5 +1,5 @@
 /*
- * Copyright © 2017 HatioLab Inc. All rights reserved.  
+ * Copyright © HatioLab Inc. All rights reserved.  
  */
 
 'use strict';
