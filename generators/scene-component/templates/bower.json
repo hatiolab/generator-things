@@ -16,6 +16,7 @@
   "homepage": "https://github.com/ThingsElements/<%= componentName %>/",
   "ignore": [
     "/.*",
+    "/src",
     "/test/"
   ],
   "dependencies": {
