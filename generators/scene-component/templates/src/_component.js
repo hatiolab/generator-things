@@ -33,6 +33,10 @@ var { ValueHolder, RectPath, Shape } = scene
 
 export default class <%= componentClassName %> extends ValueHolder(RectPath(Shape)) {
 
+  dispose() {
+    super.dispose();
+  }
+
   _draw(context) {
     var {
       top,

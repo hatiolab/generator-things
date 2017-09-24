@@ -1,7 +1,7 @@
 {
   "name": "<%= componentName %>",
   "version": "0.1.0",
-  "description": "An element providing a starting point for your own reusable Polymer elements.",
+  "description": "An <%= componentTypeName %> component for things-scene.",
   "main": "index.js",
   "directories": {
     "test": "test"
