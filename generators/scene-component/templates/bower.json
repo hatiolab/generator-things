@@ -15,12 +15,22 @@
   "license": "http://things-scene.hatiolab.com/EULA/",
   "homepage": "https://github.com/ThingsElements/<%= componentName %>/",
   "ignore": [
-    "/.*",
-    "/src",
-    "/test/"
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "docs",
+    "samples",
+    "demo",
+    "lib",
+    "DEPLOYMENT.md",
+    "DEVELOPMENT.md",
+    "<%= componentName %>.js"
   ],
   "dependencies": {
-    "things-scene-core": "ThingsElements/things-scene-core#^2.0.0"    
+    "things-scene-core": "ThingsElements/things-scene-core#^2.0.0"
   },
   "devDependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
