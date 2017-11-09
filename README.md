@@ -25,7 +25,7 @@ yo things:scene-component
 ```
 $ mkdir things-scene-xxx # 원하는 컴포넌트 이름의 폴더를 만든다. 폴더 이름은 꼭 'things-scene-' 으로 시작되어야 한다.
 $ cd things-scene-xxx    # 폴더로 이동한다.
-$ yo things:things-scene-component  # 컴포넌트를 만든다.
+$ yo things:scene-component  # 컴포넌트를 만든다.
 ```
 
 ## Getting To Know Yeoman
