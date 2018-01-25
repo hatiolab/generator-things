@@ -1,5 +1,5 @@
 {
-  "name": "<%= componentName %>",
+  "name": "<%= moduleName %>",
   "version": "0.1.0",
   "authors": [
     "Hatio Lab. <heartyoh@hatiolab.com>"
@@ -11,9 +11,9 @@
     "polymer",
     "seed"
   ],
-  "main": "<%= componentName %>.html",
+  "main": "<%= moduleName %>.html",
   "license": "http://things-scene.hatiolab.com/EULA/",
-  "homepage": "https://github.com/ThingsElements/<%= componentName %>/",
+  "homepage": "https://github.com/ThingsElements/<%= moduleName %>/",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -27,7 +27,7 @@
     "lib",
     "DEPLOYMENT.md",
     "DEVELOPMENT.md",
-    "<%= componentName %>.js"
+    "<%= moduleName %>.js"
   ],
   "dependencies": {
     "things-scene-core": "ThingsElements/things-scene-core#^2.0.0"

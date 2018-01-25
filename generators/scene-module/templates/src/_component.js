@@ -29,9 +29,9 @@ const NATURE = {
   }]
 }
 
-var { Container } = scene
+var { ValueHolder, RectPath, Shape } = scene
 
-export default class <%= componentClassName %> extends Container {
+export default class <%= componentClassName %> extends ValueHolder(RectPath(Shape)) {
 
   static get nature() {
     return NATURE;

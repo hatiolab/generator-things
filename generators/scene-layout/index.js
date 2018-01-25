@@ -1,5 +1,5 @@
 /*
- * Copyright © HatioLab Inc. All rights reserved.  
+ * Copyright © HatioLab Inc. All rights reserved.
  */
 
 'use strict';
@@ -7,6 +7,12 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const path = require('path');
+
+function classname(str) {
+  return str.replace(/-/g, ' ').replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
+    return letter.toUpperCase();
+  }).replace(/\s+/g, '');
+}
 
 module.exports = class extends Generator {
   prompting() {
@@ -19,14 +25,13 @@ module.exports = class extends Generator {
       type: 'input',
       name: 'layoutName',
       message: 'Your scene-layout name?',
-      default: this.appname // Default to current folder name
+      default: this.appname.replace('things scene ', '') + '-layout'
     }];
 
     return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
-      let layoutName = props.layoutName.replace(/ /g, '-');
-      let layoutSourceFileName = layoutName.replace('things-scene-', '');
-      let layoutClassName = layoutSourceFileName.replace(/\b\w/g, l => l.toUpperCase());
+      let layoutName = props.layoutName.replace('-layout', '');
+      let layoutSourceFileName = layoutName + '-layout';
+      let layoutClassName = classname(layoutSourceFileName);
 
       this.props = props;
       this.props.layoutName = layoutName;
@@ -38,14 +43,6 @@ module.exports = class extends Generator {
   writing() {
     var tpl = this.props;
 
-    this.fs.copyTpl([
-      this.templatePath() + '/**',
-      this.templatePath() + '/**/.*',
-      '!**/{.DS_Store,_layout.js}/**'],
-      this.destinationPath(),
-      tpl
-    );
-
     this.fs.copyTpl(
       this.templatePath('src/_layout.js'),
       this.destinationPath('src/', this.props.layoutSourceFileName + '.js'),
@@ -53,7 +50,5 @@ module.exports = class extends Generator {
     );
   }
 
-  install() {
-    this.installDependencies();
-  }
+  install() {}
 };

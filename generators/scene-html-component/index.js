@@ -18,13 +18,13 @@ module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the smashing ' + chalk.red('generator-things:scene-container') + ' generator!'
+      'Welcome to the smashing ' + chalk.red('generator-things:scene-html-component') + ' generator!'
     ));
 
     const prompts = [{
       type: 'input',
       name: 'componentName',
-      message: 'Your container style scene-component name?',
+      message: 'Your HTMLElement style scene-html-component name?',
       default: this.appname.replace(/ /g, '-') // Default to current folder name
     }];
 
@@ -35,6 +35,7 @@ module.exports = class extends Generator {
       let componentClassName = classname(componentTypeName);
 
       this.props = props;
+      this.props.moduleName = this.appname.replace(/ /g, '-');
       this.props.componentName = componentName;
       this.props.componentTypeName = componentTypeName;
       this.props.componentClassName = componentClassName;
@@ -47,6 +48,12 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('src/_component.js'),
       this.destinationPath('src/', this.props.componentTypeName + '.js'),
+      tpl
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('demo/_demo.html'),
+      this.destinationPath('demo/', 'index-' + this.props.componentTypeName + '.html'),
       tpl
     );
   }

@@ -16,15 +16,15 @@ Copyright © HatioLab Inc. All rights reserved.
 
     <link rel="import" href="../../things-designer-elements/things-editor-properties.html">
 
-    <link rel="import" href="./<%= componentName %>.html">
+    <link rel="import" href="./<%= moduleName %>.html">
 
     <link rel="import" href="./things-theme.html">
-    
+
     <style is="custom-style" include="things-theme">
     things-scene-viewer {
       display: block;
-      width: 640px;
-      height: 480px;
+      width: 800px;
+      height: 600px;
     }
     </style>
   </head>
@@ -75,22 +75,32 @@ Copyright © HatioLab Inc. All rights reserved.
         });
 
         app.model = {
-          width: 640,
-          height: 480,
+          width: 800,
+          height: 600,
           components: [{
             type: '<%= componentTypeName %>',
             top: 100,
             left: 100,
-            width:200,
-            height: 70,
-            fontSize: 40,
-            fillStyle: '#00ff00',
-            fontColor: '#FF0000',
-            strokeStyle: '#000',
-            lineWidth: 5,
-            value: 40,
-            text: '#{value}',
-            lineCap: 'round'
+            width: 100,
+            height: 100,
+            count: 10,
+            period: 1000,
+            format: 'zip',
+            mappings: [{
+              target: '#zipcode',
+              property: 'value',
+              rule: 'value'
+            }]
+          }, {
+            type: 'text',
+            id: 'zipcode',
+            top: 100,
+            left: 200,
+            width: 400,
+            height: 100,
+            fontColor: 'black',
+            fontSize: 30,
+            text: 'double click the dice'
           }]
         }
       });

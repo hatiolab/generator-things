@@ -1,10 +1,10 @@
 /*
- * Copyright © HatioLab Inc. All rights reserved.  
+ * Copyright © HatioLab Inc. All rights reserved.
  */
 
 var { Layout } = scene
 
-var TableLayout = {
+var <%= layoutClassName %> = {
 
   reflow: function(container) {
     var layoutConfig = container.get('layoutConfig')
@@ -115,6 +115,6 @@ var TableLayout = {
   joinType: true
 }
 
-Layout.register('table', TableLayout)
+Layout.register('<%= layoutName %>', <%= layoutClassName %>)
 
-export default TableLayout
+export default <%= layoutClassName %>

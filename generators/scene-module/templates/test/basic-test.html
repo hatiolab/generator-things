@@ -12,26 +12,26 @@ Copyright © HatioLab Inc. All rights reserved.
     <script src="../../web-component-tester/browser.js"></script>
 
     <!-- Step 1: import the element to test -->
-    <link rel="import" href="../<%= componentName %>.html">
+    <link rel="import" href="../<%= moduleName %>.html">
   </head>
   <body>
 
     <!-- You can use the document as a place to set up your fixtures. -->
-    <test-fixture id="<%= componentName %>-fixture">
+    <test-fixture id="<%= moduleName %>-fixture">
       <template>
-        <<%= componentName %>>
-          <h2><%= componentName %></h2>
-        </<%= componentName %>>
+        <<%= moduleName %>>
+          <h2><%= moduleName %></h2>
+        </<%= moduleName %>>
       </template>
     </test-fixture>
 
     <script>
-      suite('<<%= componentName %>>', function() {
+      suite('<<%= moduleName %>>', function() {
 
         var myEl;
 
         setup(function() {
-          myEl = fixture('<%= componentName %>-fixture');
+          myEl = fixture('<%= moduleName %>-fixture');
         });
 
         test('defines the "author" property', function() {
@@ -40,14 +40,14 @@ Copyright © HatioLab Inc. All rights reserved.
         });
 
         test('says hello', function() {
-          assert.equal(myEl.sayHello(), '<%= componentName %> says, Hello World!');
+          assert.equal(myEl.sayHello(), '<%= moduleName %> says, Hello World!');
 
           var greetings = myEl.sayHello('greetings Earthlings');
-          assert.equal(greetings, '<%= componentName %> says, greetings Earthlings');
+          assert.equal(greetings, '<%= moduleName %> says, greetings Earthlings');
         });
 
         test('fires lasers', function(done) {
-          myEl.addEventListener('<%= componentName %>-lasers', function(event) {
+          myEl.addEventListener('<%= moduleName %>-lasers', function(event) {
             assert.equal(event.detail.sound, 'Pew pew!');
             done();
           });

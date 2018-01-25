@@ -10,4 +10,4 @@
 ```$ npm run serve -- -p 8081```
 
 ## 브라우저에서 확인한다.
-http://localhost:8080/components/<%= componentName %>/demo/index.html
+http://localhost:8080/components/<%= moduleName %>/demo/index.html
