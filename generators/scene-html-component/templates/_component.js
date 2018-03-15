@@ -108,4 +108,4 @@ export default class <%= componentClassName %> extends HTMLOverlayContainer {
   }
 }
 
-scene.Component.register('<%= componentTypeName %>', <%= componentClassName %>);
+scene.Component.register('<%= componentName %>', <%= componentClassName %>);

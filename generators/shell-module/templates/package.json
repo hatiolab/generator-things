@@ -1,0 +1,18 @@
+{
+  "name": "@things-scene/<%= moduleName %>",
+  "description": "<%= moduleName %> component for things-scene",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "<%= username %>",
+  "scripts": {
+    "serve": "things-shell"
+  },
+  "things-scene": true,
+  "dependencies": {
+    "@hatiolab/things-shell": "^0.3.13",
+    "@things-scene/form": "^0.2.7",
+    "@things-scene/random": "^0.2.0",
+    "@things-scene/restful": "^0.2.0",
+    "@things-scene/table": "^2.2.0"
+  }
+}

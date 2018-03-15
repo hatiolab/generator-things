@@ -18,26 +18,23 @@ module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the smashing ' + chalk.red('generator-things:scene-html-component') + ' generator!'
+      'Welcome to the smashing ' + chalk.red('generator-things:scene-data-transform') + ' generator!'
     ));
 
     const prompts = [{
       type: 'input',
       name: 'componentName',
-      message: 'Your HTMLElement style scene-html-component name?',
-      default: this.appname.replace(/ /g, '-') // Default to current folder name
+      message: 'Your DataTransform style scene-data-transform-component name?'
     }];
 
     return this.prompt(prompts).then(props => {
 
       let componentName = props.componentName;
-      let componentTypeName = componentName.replace('things-scene-', '');
-      let componentClassName = classname(componentTypeName);
+      let componentClassName = classname(componentName);
 
       this.props = props;
       this.props.moduleName = this.appname.replace(/ /g, '-');
       this.props.componentName = componentName;
-      this.props.componentTypeName = componentTypeName;
       this.props.componentClassName = componentClassName;
     });
   }
@@ -46,16 +43,16 @@ module.exports = class extends Generator {
     var tpl = this.props;
 
     this.fs.copyTpl(
-      this.templatePath('src/_component.js'),
-      this.destinationPath('src/', this.props.componentTypeName + '.js'),
+      this.templatePath('_component.js'),
+      this.destinationPath('src/', this.props.componentName + '.js'),
       tpl
     );
 
-    this.fs.copyTpl(
-      this.templatePath('demo/_demo.html'),
-      this.destinationPath('demo/', 'index-' + this.props.componentTypeName + '.html'),
+    this.fs.copy(
+      this.templatePath('_component.png'),
+      this.destinationPath('src/' + this.props.componentName + '.png'),
       tpl
-    );
+    );  
   }
 
   install() {}

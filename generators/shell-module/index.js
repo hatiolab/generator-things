@@ -16,38 +16,51 @@ function classname(str) {
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user.
+
     this.log(yosay(
-      'Welcome to the smashing ' + chalk.red('generator-things:scene-datasource') + ' generator!'
+      'Welcome to the smashing ' + chalk.red('generator-things:shell-module') + ' generator!'
     ));
 
     const prompts = [{
       type: 'input',
-      name: 'componentName',
-      message: 'Your DataSource style scene-datasource-component name?'
+      name: 'moduleName',
+      message: 'Your module name?',
+      default: this.appname.replace(/ /g, '-')
+    }, {
+      type: 'input',
+      name: 'username',
+      message: 'What\'s your Github username',
+      store: true
     }];
 
     return this.prompt(prompts).then(props => {
-
-      let componentName = props.componentName;
-      let componentClassName = classname(componentName);
-
       this.props = props;
-      this.props.moduleName = this.appname.replace(/ /g, '-');
-      this.props.componentName = componentName;
-      this.props.componentClassName = componentClassName;
     });
   }
 
   writing() {
     var tpl = this.props;
 
+    this.fs.copyTpl([
+      this.templatePath() + '/**',
+      this.templatePath() + '/**/.*',
+      '!**/{.DS_Store,_*}/**'],
+      this.destinationPath(),
+      tpl
+    );
+
     this.fs.copyTpl(
-      this.templatePath('_component.js'),
-      this.destinationPath('src/', this.props.componentName + '.js'),
+      this.templatePath('_gitignore'),
+      this.destinationPath('.gitignore'),
       tpl
     );
   }
 
-  install() {}
+  install() {
+    this.installDependencies({
+      npm: false,
+      bower: false,
+      yarn: true
+    });
+  }
 };

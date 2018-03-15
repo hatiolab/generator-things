@@ -24,20 +24,17 @@ module.exports = class extends Generator {
     const prompts = [{
       type: 'input',
       name: 'componentName',
-      message: 'Your HTMLElement style scene-html-component name?',
-      default: this.appname.replace(/ /g, '-') // Default to current folder name
+      message: 'Your HTMLElement style scene-html-component name?'
     }];
 
     return this.prompt(prompts).then(props => {
 
       let componentName = props.componentName;
-      let componentTypeName = componentName.replace('things-scene-', '');
-      let componentClassName = classname(componentTypeName);
+      let componentClassName = classname(componentName);
 
       this.props = props;
       this.props.moduleName = this.appname.replace(/ /g, '-');
       this.props.componentName = componentName;
-      this.props.componentTypeName = componentTypeName;
       this.props.componentClassName = componentClassName;
     });
   }
@@ -46,14 +43,8 @@ module.exports = class extends Generator {
     var tpl = this.props;
 
     this.fs.copyTpl(
-      this.templatePath('src/_component.js'),
-      this.destinationPath('src/', this.props.componentTypeName + '.js'),
-      tpl
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('demo/_demo.html'),
-      this.destinationPath('demo/', 'index-' + this.props.componentTypeName + '.html'),
+      this.templatePath('_component.js'),
+      this.destinationPath('src/', this.props.componentName + '.js'),
       tpl
     );
   }

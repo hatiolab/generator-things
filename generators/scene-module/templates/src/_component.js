@@ -29,7 +29,7 @@ const NATURE = {
   }]
 }
 
-var { ValueHolder, RectPath, Shape } = scene
+import { Component, ValueHolder, RectPath, Shape, error } from '@hatiolab/things-scene';
 
 export default class <%= componentClassName %> extends ValueHolder(RectPath(Shape)) {
 
@@ -85,4 +85,4 @@ export default class <%= componentClassName %> extends ValueHolder(RectPath(Shap
   get controls() {}
 }
 
-scene.Component.register('<%= componentTypeName %>', <%= componentClassName %>);
+Component.register('<%= componentTypeName %>', <%= componentClassName %>);

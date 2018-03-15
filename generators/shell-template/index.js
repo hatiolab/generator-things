@@ -16,26 +16,18 @@ function classname(str) {
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the smashing ' + chalk.red('generator-things:scene-datasource') + ' generator!'
+      'Welcome to the smashing ' + chalk.red('generator-things:shell-template') + ' generator!'
     ));
 
     const prompts = [{
       type: 'input',
-      name: 'componentName',
-      message: 'Your DataSource style scene-datasource-component name?'
+      name: 'templateName',
+      message: 'Your template name?'
     }];
 
     return this.prompt(prompts).then(props => {
-
-      let componentName = props.componentName;
-      let componentClassName = classname(componentName);
-
       this.props = props;
-      this.props.moduleName = this.appname.replace(/ /g, '-');
-      this.props.componentName = componentName;
-      this.props.componentClassName = componentClassName;
     });
   }
 
@@ -43,11 +35,15 @@ module.exports = class extends Generator {
     var tpl = this.props;
 
     this.fs.copyTpl(
-      this.templatePath('_component.js'),
-      this.destinationPath('src/', this.props.componentName + '.js'),
+      this.templatePath('_template.js'),
+      this.destinationPath('templates/' + this.props.templateName + '.js'),
+      tpl
+    );
+
+    this.fs.copy(
+      this.templatePath('_icon.png'),
+      this.destinationPath('templates/' + this.props.templateName + '.png'),
       tpl
     );
   }
-
-  install() {}
 };

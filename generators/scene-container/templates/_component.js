@@ -29,7 +29,7 @@ const NATURE = {
   }]
 }
 
-var { Container } = scene
+import { Component, Container, error } from '@hatiolab/things-scene';
 
 export default class <%= componentClassName %> extends Container {
 
@@ -85,4 +85,4 @@ export default class <%= componentClassName %> extends Container {
   get controls() {}
 }
 
-scene.Component.register('<%= componentTypeName %>', <%= componentClassName %>);
+Component.register('<%= componentName %>', <%= componentClassName %>);
