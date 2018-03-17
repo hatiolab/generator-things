@@ -1,5 +1,1 @@
-/* IMPORT POINT */
-
-export default [
-  /* EXPORT POINT */
-];
+export default [];

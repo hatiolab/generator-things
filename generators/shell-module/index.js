@@ -54,6 +54,12 @@ module.exports = class extends Generator {
       this.destinationPath('.gitignore'),
       tpl
     );
+
+    this.fs.copyTpl(
+      this.templatePath('_vscode'),
+      this.destinationPath('.vscode'),
+      tpl
+    );
   }
 
   install() {
