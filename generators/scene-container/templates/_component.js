@@ -5,28 +5,7 @@
 const NATURE = {
   mutable: false,
   resizable: true,
-  rotatable: true,
-  properties : [{
-    type: 'number',
-    label: 'value',
-    name: 'value',
-    property: 'value'
-  },{
-    type: 'angle',
-    label: 'angle property',
-    name: 'propAngle',
-    property: 'propAngle'
-  },{
-    type: 'string',
-    label: 'string property',
-    name: 'propString',
-    property: 'propString'
-  },{
-    type: 'color',
-    label: 'color property',
-    name: 'propColor',
-    property: 'propColor'
-  }]
+  rotatable: true
 }
 
 import { Component, Container, error } from '@hatiolab/things-scene';
@@ -41,7 +20,7 @@ export default class <%= componentClassName %> extends Container {
     super.dispose();
   }
 
-  _draw(context) {
+  render(context) {
     var {
       top,
       left,
@@ -77,7 +56,7 @@ export default class <%= componentClassName %> extends Container {
     context.rect(left, top, width, height);
   }
 
-  _post_draw(context) {
+  postrender(context) {
     this.drawStroke(context);
     this.drawText(context);
   }

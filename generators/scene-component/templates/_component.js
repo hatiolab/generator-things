@@ -9,29 +9,25 @@ const NATURE = {
   properties : [{
     type: 'number',
     label: 'value',
-    name: 'value',
-    property: 'value'
+    name: 'value'
   },{
     type: 'angle',
     label: 'angle property',
-    name: 'propAngle',
-    property: 'propAngle'
+    name: 'propAngle'
   },{
     type: 'string',
     label: 'string property',
-    name: 'propString',
-    property: 'propString'
+    name: 'propString'
   },{
     type: 'color',
     label: 'color property',
-    name: 'propColor',
-    property: 'propColor'
+    name: 'propColor'
   }]
 }
 
-import { Component, Container, error } from '@hatiolab/things-scene';
+import { Component, ValueHolder, RectPath, Shape, error } from '@hatiolab/things-scene';
 
-export default class <%= componentClassName %> extends Container {
+export default class <%= componentClassName %> extends ValueHolder(RectPath(Shape)) {
 
   static get nature() {
     return NATURE;
@@ -41,7 +37,7 @@ export default class <%= componentClassName %> extends Container {
     super.dispose();
   }
 
-  _draw(context) {
+  render(context) {
     var {
       top,
       left,
@@ -77,7 +73,7 @@ export default class <%= componentClassName %> extends Container {
     context.rect(left, top, width, height);
   }
 
-  _post_draw(context) {
+  postrender(context) {
     this.drawStroke(context);
     this.drawText(context);
   }

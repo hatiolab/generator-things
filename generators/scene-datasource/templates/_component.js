@@ -104,7 +104,7 @@ export default class <%= componentClassName %>  extends DataSource(RectPath(Shap
       clearTimeout(this.repeatTimer)
   }
 
-  _draw(context) {
+  render(context) {
     var {
       left,
       top,

@@ -41,7 +41,7 @@ export default class <%= componentClassName %> extends ValueHolder(RectPath(Shap
     super.dispose();
   }
 
-  _draw(context) {
+  render(context) {
     var {
       top,
       left,
@@ -77,7 +77,7 @@ export default class <%= componentClassName %> extends ValueHolder(RectPath(Shap
     context.rect(left, top, width, height);
   }
 
-  _post_draw(context) {
+  postrender(context) {
     this.drawStroke(context);
     this.drawText(context);
   }

@@ -89,7 +89,7 @@ export default class <%= componentClassName %>  extends RectPath(Shape) {
       clearTimeout(this.repeatTimer)
   }
 
-  _draw(context) {
+  render(context) {
     var {
       left,
       top,
