@@ -44,7 +44,7 @@ module.exports = class extends Generator {
     var tpl = this.props;
 
     this.fs.copyTpl(
-      this.templatePath('src/_layout.js'),
+      this.templatePath('_layout.js'),
       this.destinationPath('src/', this.props.layoutSourceFileName + '.js'),
       tpl
     );

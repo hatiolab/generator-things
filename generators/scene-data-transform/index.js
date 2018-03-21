@@ -44,7 +44,6 @@ module.exports = class extends Generator {
       let componentClassName = classname(componentName);
 
       this.props = props;
-      this.props.moduleName = this.appname.replace(/ /g, '-');
       this.props.componentName = componentName;
       this.props.componentClassName = componentClassName;
     });
