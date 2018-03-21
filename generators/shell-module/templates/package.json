@@ -1,6 +1,6 @@
 {
-  "name": "@things-scene/<%= moduleName %>",
-  "description": "<%= moduleName %> component for things-scene",
+  "name": "@things-scene/<%= simpleModuleName %>",
+  "description": "<%= simpleModuleName %> component for things-scene",
   "version": "1.0.0",
   "main": "src/index.js",
   "author": "<%= username %>",

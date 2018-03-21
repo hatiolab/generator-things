@@ -35,6 +35,8 @@ module.exports = class extends Generator {
 
     return this.prompt(prompts).then(props => {
       this.props = props;
+
+      this.props.simpleModuleName = props.moduleName.replace('things-scene-', '');
     });
   }
 
