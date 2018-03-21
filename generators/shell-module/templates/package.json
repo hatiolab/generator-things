@@ -9,10 +9,10 @@
   },
   "things-scene": true,
   "dependencies": {
-    "@hatiolab/things-shell": "^0.3.13",
-    "@things-scene/form": "^0.2.7",
-    "@things-scene/random": "^0.2.0",
-    "@things-scene/restful": "^0.2.0",
-    "@things-scene/table": "^2.2.0"
+    "@hatiolab/things-shell": "*",
+    "@things-scene/form": "*",
+    "@things-scene/random": "*",
+    "@things-scene/restful": "*",
+    "@things-scene/table": "*"
   }
 }
