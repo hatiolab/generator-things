@@ -2,12 +2,13 @@
   "name": "@things-scene/<%= simpleModuleName %>",
   "description": "<%= simpleModuleName %> component for things-scene",
   "version": "1.0.0",
+  "things-scene": true,
   "main": "src/index.js",
   "author": "<%= username %>",
   "scripts": {
-    "serve": "things-shell"
+    "serve": "things-shell",
+    "serve:dev": "things-shell-dev"
   },
-  "things-scene": true,
   "dependencies": {
     "@hatiolab/things-shell": "*",
     "@things-scene/form": "*",
