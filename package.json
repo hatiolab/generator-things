@@ -1,12 +1,12 @@
 {
   "name": "generator-things",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "homepage": "http://hatiolab.com",
   "author": {
     "name": "heartyoh",
     "email": "heartyoh@hatiolab.com",
-    "url": "hatiolab.com"
+    "url": "https://github.com/heartyoh"
   },
   "files": [
     "generators"
