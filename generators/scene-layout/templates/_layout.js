@@ -2,7 +2,9 @@
  * Copyright © HatioLab Inc. All rights reserved.
  */
 
-var { Layout } = scene
+import {
+  Layout
+} from '@hatiolab/things-scene';
 
 var <%= layoutClassName %> = {
 

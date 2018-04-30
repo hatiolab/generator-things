@@ -7,7 +7,8 @@
   "author": "<%= username %>",
   "scripts": {
     "serve": "things-shell",
-    "serve:dev": "things-shell-dev"
+    "serve:dev": "things-shell-dev",
+    "build": "webpack"
   },
   "dependencies": {
     "@hatiolab/things-shell": "*",

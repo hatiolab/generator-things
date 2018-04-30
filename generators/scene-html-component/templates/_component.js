@@ -13,11 +13,12 @@ const NATURE = {
   }]
 }
 
-var {
+import {
+  Component,
   HTMLOverlayContainer,
   ScriptLoader,
   error
-} = scene
+} from '@hatiolab/things-scene';
 
 export default class <%= componentClassName %> extends HTMLOverlayContainer {
 
@@ -108,4 +109,4 @@ export default class <%= componentClassName %> extends HTMLOverlayContainer {
   }
 }
 
-scene.Component.register('<%= componentName %>', <%= componentClassName %>);
+Component.register('<%= componentName %>', <%= componentClassName %>);
