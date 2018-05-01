@@ -1,0 +1,24 @@
+{
+  "name": "@things-scene/<%= simpleModuleName %>",
+  "description": "<%= simpleModuleName %> component for things-scene",
+  "version": "1.0.0",
+  "things-scene": true,
+  "main": "src/index.js",
+  "author": "<%= username %>",
+  "scripts": {
+    "serve": "things-shell",
+    "serve:dev": "things-shell-dev",
+    "build": "webpack",
+    "prepublish": "webpack"
+  },
+  "devDependencies": {
+    "@hatiolab/things-shell": "*",
+    "@things-scene/form": "*",
+    "@things-scene/random": "*",
+    "@things-scene/restful": "*",
+    "@things-scene/table": "*"
+  },
+  "dependencies": {
+    "@hatiolab/things-scene": "*"
+  }
+}

@@ -18,7 +18,7 @@ module.exports = class extends Generator {
   prompting() {
 
     this.log(yosay(
-      'Welcome to the smashing ' + chalk.red('generator-things:shell-module') + ' generator!'
+      'Welcome to the smashing ' + chalk.red('generator-things:incubator') + ' generator!'
     ));
 
     const prompts = [{
