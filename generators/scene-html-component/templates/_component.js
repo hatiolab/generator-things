@@ -105,7 +105,7 @@ export default class <%= componentClassName %> extends HTMLOverlayContainer {
   }
 
   get tagName() {
-    return 'div'
+    return '<%= componentName %>'
   }
 }
 
