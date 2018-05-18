@@ -11,7 +11,7 @@
     "migration:run": "things-shell-migration",
     "migration:revert": "things-shell-migration --undo",
     "build:client": "webpack --config node_modules/@hatiolab/things-shell/webpack.config.js",
-    "build:": "webpack",
+    "build": "webpack",
     "prepublish": "webpack"
   },
   "devDependencies": {

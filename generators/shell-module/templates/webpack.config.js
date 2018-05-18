@@ -1,6 +1,7 @@
 const path = require('path');
   
   const webpack = require('webpack');
+  const WebpackCleanupPlugin = require('webpack-cleanup-plugin')
   const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
   
   module.exports = {
@@ -60,6 +61,7 @@ const path = require('path');
       }]
     },
     plugins: [
+      new WebpackCleanupPlugin(),
       new UglifyJsPlugin({
         test: /\-min\.js$/
       })
