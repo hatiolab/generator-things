@@ -7,7 +7,18 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const path = require('path');
+const babylon = require('babylon');
+const traverse = require('babel-traverse').default;
+const types = require('babel-types');
+const generate = require('babel-generator').default;
 
+const isImportDeclaration = path => 
+  types.isImportDeclaration(path.node) ||
+  types.isImportSpecifier(path.parent) ||
+  types.isImportDeclaration(path.parent) ||
+  types.isImportSpecifier(path.parent) ||
+  types.isImportDefaultSpecifier(path.parent);
+  
 function classname(str) {
   return str.replace(/-/g, ' ').replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
     return letter.toUpperCase();
@@ -24,19 +35,16 @@ module.exports = class extends Generator {
     const prompts = [{
       type: 'input',
       name: 'componentName',
-      message: 'Your container style scene-component name?',
-      default: this.appname.replace(/ /g, '-') // Default to current folder name
+      message: 'Your container style scene-component name?'
     }];
 
     return this.prompt(prompts).then(props => {
 
       let componentName = props.componentName;
-      let componentTypeName = componentName.replace('things-scene-', '');
-      let componentClassName = classname(componentTypeName);
+      let componentClassName = classname(componentName);
 
       this.props = props;
       this.props.componentName = componentName;
-      this.props.componentTypeName = componentTypeName;
       this.props.componentClassName = componentClassName;
     });
   }
@@ -45,10 +53,65 @@ module.exports = class extends Generator {
     var tpl = this.props;
 
     this.fs.copyTpl(
-      this.templatePath('src/_component.js'),
-      this.destinationPath('src/', this.props.componentTypeName + '.js'),
+      this.templatePath('_component.js'),
+      this.destinationPath('src/', tpl.componentName + '.js'),
       tpl
     );
+
+    const source = this.fs.read(
+      this.destinationPath('src/index.js')
+    );
+
+    const ast = babylon.parse(source, {
+      sourceType: 'module'
+    });    
+
+    const declaration = types.importDeclaration(
+      [types.importDefaultSpecifier(types.identifier(tpl.componentClassName))],
+      types.stringLiteral(`./${tpl.componentName}`)
+    );
+
+    let lastImport = null;
+    let firstExport = null;
+    let doneImport = false;
+    let doneExport = false;
+
+    traverse(ast, {
+      enter(path) {
+        if(!doneImport) {
+          if (lastImport && !isImportDeclaration(path)) {
+            lastImport.insertAfter(declaration);
+            doneImport = true;
+          } else if(firstExport) {
+            firstExport.insertBefore(declaration);
+            doneImport = true;
+          }
+        }
+      },
+
+      ImportDeclaration(path) {
+        lastImport = path;
+      },
+
+      ExportDefaultDeclaration(path) {
+        if(!firstExport) {
+          firstExport = path;
+        }
+      },
+
+      ArrayExpression(path) {
+        if(!doneExport && firstExport) {
+          path.node.elements.push(types.identifier(tpl.componentClassName));
+          doneExport = true;
+        }
+      }
+    });
+
+    // Generate actually source code from modified AST
+    const { code } = generate(ast, { /* Options */ }, source);
+
+    // Write source back to file
+    this.fs.write(this.destinationPath('src/index.js'), code);    
   }
 
   install() {}

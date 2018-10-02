@@ -1,0 +1,23 @@
+{
+  "name": "@things-real/<%= simpleModuleName %>",
+  "description": "<%= simpleModuleName %> module for things-real",
+  "version": "1.0.0",
+  "things-scene": true,
+  "main": "src/index.js",
+  "author": "<%= username %>",
+  "scripts": {
+    "serve": "things-shell",
+    "serve:dev": "things-shell-dev",
+    "migration:run": "things-shell-migration",
+    "migration:revert": "things-shell-migration --undo",
+    "build:client": "webpack --config node_modules/@hatiolab/things-shell/webpack.config.js",
+    "build": "webpack",
+    "prepublish": "webpack"
+  },
+  "devDependencies": {
+    "@things-real/shell": "*"
+  },
+  "dependencies": {
+    "@hatiolab/things-real": "*"
+  }
+}

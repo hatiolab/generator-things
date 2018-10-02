@@ -29,7 +29,7 @@ const NATURE = {
   }]
 }
 
-var { ValueHolder, RectPath, Shape } = scene
+import { Component, ValueHolder, RectPath, Shape, error } from '@hatiolab/things-scene';
 
 export default class <%= componentClassName %> extends ValueHolder(RectPath(Shape)) {
 
@@ -41,7 +41,7 @@ export default class <%= componentClassName %> extends ValueHolder(RectPath(Shap
     super.dispose();
   }
 
-  _draw(context) {
+  render(context) {
     var {
       top,
       left,
@@ -77,7 +77,7 @@ export default class <%= componentClassName %> extends ValueHolder(RectPath(Shap
     context.rect(left, top, width, height);
   }
 
-  _post_draw(context) {
+  postrender(context) {
     this.drawStroke(context);
     this.drawText(context);
   }
@@ -85,4 +85,4 @@ export default class <%= componentClassName %> extends ValueHolder(RectPath(Shap
   get controls() {}
 }
 
-scene.Component.register('<%= componentTypeName %>', <%= componentClassName %>);
+Component.register('<%= componentTypeName %>', <%= componentClassName %>);

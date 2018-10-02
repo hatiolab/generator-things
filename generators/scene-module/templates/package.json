@@ -1,6 +1,5 @@
 {
-  "name": "@@things-elements/<%= moduleName %>",
-  "flat": true,
+  "name": "@things-elements/<%= moduleName %>",
   "version": "0.1.0",
   "description": "The <%= componentTypeName %> component for things-scene.",
   "main": "<%= moduleName %>-min.js",
@@ -28,6 +27,7 @@
     ]
   },
   "devDependencies": {
+    "@hatiolab/things-shell": "^0.1.2",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -46,6 +46,6 @@
     "polymer-webpack-loader": "^2.0.0"
   },
   "dependencies": {
-    "@hatiolab/things-scene": "^2.2.36"
+    "@hatiolab/things-scene": "^2.2.42"
   }
 }

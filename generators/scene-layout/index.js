@@ -25,7 +25,7 @@ module.exports = class extends Generator {
       type: 'input',
       name: 'layoutName',
       message: 'Your scene-layout name?',
-      default: this.appname.replace('things scene ', '') + '-layout'
+      default: this.appname.replace('things-scene-', '') + '-layout'
     }];
 
     return this.prompt(prompts).then(props => {
@@ -44,11 +44,9 @@ module.exports = class extends Generator {
     var tpl = this.props;
 
     this.fs.copyTpl(
-      this.templatePath('src/_layout.js'),
+      this.templatePath('_layout.js'),
       this.destinationPath('src/', this.props.layoutSourceFileName + '.js'),
       tpl
     );
   }
-
-  install() {}
 };
