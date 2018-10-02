@@ -6,7 +6,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 module.exports = {
   mode: 'production',
   entry: {
-    "things-scene-<%= simpleModuleName %>": ['./src/index.js']
+    "things-real-<%= simpleModuleName %>": ['./src/index.js']
   },
   output: {
     path: path.resolve('./dist'),
@@ -19,7 +19,7 @@ module.exports = {
     modules: ['./node_modules']
   },
   externals: {
-    "@hatiolab/things-scene": "scene"
+    "@hatiolab/things-real": "real"
   },
   optimization: {
     minimize: true,
