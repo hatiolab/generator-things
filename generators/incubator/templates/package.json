@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "things-scene": true,
   "main": "src/index.js",
+  "module": "dist/things-scene-<%= simpleModuleName %>.mjs",
+  "jsnext:main": "dist/things-scene-<%= simpleModuleName %>.mjs",
   "author": "<%= username %>",
   "scripts": {
     "serve": "things-shell",
@@ -11,8 +13,8 @@
     "migration:run": "things-shell-migration",
     "migration:revert": "things-shell-migration --undo",
     "build:client": "webpack --config node_modules/@hatiolab/things-shell/webpack.config.js",
-    "build": "webpack",
-    "prepublish": "webpack"
+    "build": "rollup -c",
+    "prepublish": "rollup -c"
   },
   "devDependencies": {
     "@hatiolab/things-shell": "*",
