@@ -1,4 +1,5 @@
 # generator-things [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+
 >
 
 ## Installation
@@ -13,7 +14,9 @@ npm install -g generator-things
 Then generate your new things-scene-component project:
 
 ```bash
+yo things:incubator
 yo things:scene-component
+yo things:scene
 ```
 
 ## 로컬로 인스톨하는 경우 (generator-things 개발시 권장)
@@ -30,15 +33,14 @@ $ yo things:scene-component  # 컴포넌트를 만든다.
 
 ## Getting To Know Yeoman
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+- Yeoman has a heart of gold.
+- Yeoman is a person with feelings and opinions, but is very easy to work with.
+- Yeoman can be too opinionated at times but is easily convinced not to be.
+- Feel free to [learn more about Yeoman](http://yeoman.io/).
 
 ## License
 
 EULA © [Hatiolab](http://things-scene.hatiolab.com/EULA/)
-
 
 [npm-image]: https://badge.fury.io/js/generator-things.svg
 [npm-url]: https://npmjs.org/package/generator-things
