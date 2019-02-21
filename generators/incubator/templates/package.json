@@ -13,8 +13,8 @@
     "migration:run": "things-shell-migration",
     "migration:revert": "things-shell-migration --undo",
     "build:client": "webpack --config node_modules/@hatiolab/things-shell/webpack.config.js",
-    "build": "rollup -c",
-    "prepublish": "rollup -c"
+    "build": "webpack && rollup -c",
+    "prepublish": "webpack && rollup -c"
   },
   "devDependencies": {
     "@hatiolab/things-shell": "*",
