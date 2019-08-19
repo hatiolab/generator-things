@@ -1,7 +1,4 @@
 const path = require('path')
-  
-const WebpackCleanupPlugin = require('webpack-cleanup-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -44,11 +41,5 @@ module.exports = {
       }]
     }]
   },
-  plugins: [
-    new WebpackCleanupPlugin(),
-    new UglifyJsPlugin({
-      test: /\-min\.js$/
-    })
-  ],
   devtool: 'cheap-module-source-map'
 }
