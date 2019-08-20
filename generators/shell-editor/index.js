@@ -62,7 +62,7 @@ module.exports = class extends Generator {
 
     const declaration = types.importDeclaration(
       [types.importDefaultSpecifier(types.identifier(tpl.editorClassName))],
-      types.stringLiteral(`./${tpl.editorName}`)
+      types.stringLiteral(`./${tpl.editorName}-editor`)
     );
 
     let lastImport = null;
