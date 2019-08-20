@@ -1,5 +1,5 @@
 import { html } from '@polymer/lit-element'
-import { ThingsEditorProperty } from '@hatiolab/things-shell/things-module'
+import { ThingsEditorProperty } from '@things-factory/board-ui/client/modeller-module'
 
 export default class <%= editorClassName %> extends ThingsEditorProperty {
   static get is() {
