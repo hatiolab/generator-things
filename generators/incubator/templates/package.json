@@ -25,6 +25,7 @@
     "@things-scene/table": "*"
   },
   "dependencies": {
+    "@polymer/lit-element": "*",
     "@hatiolab/things-scene": "*"
   }
 }
