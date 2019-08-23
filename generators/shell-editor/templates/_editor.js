@@ -1,5 +1,8 @@
 import { html, css } from '@polymer/lit-element'
-import { ThingsEditorProperty } from '@things-factory/board-ui/client/modeller-module'
+import {
+  ThingsEditorProperty,
+  ThingsEditorPropertyStyles
+} from '@things-factory/board-ui/client/modeller-module'
 
 export default class <%= editorClassName %> extends ThingsEditorProperty {
   static get is() {
