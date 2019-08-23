@@ -1,4 +1,4 @@
-import { html, css } from '@polymer/lit-element'
+import { html, css } from 'lit-element'
 import {
   ThingsEditorProperty,
   ThingsEditorPropertyStyles
