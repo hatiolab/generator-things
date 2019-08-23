@@ -17,14 +17,19 @@ export default class <%= editorClassName %> extends ThingsEditorProperty {
 
   editorTemplate(props) {
     return html`
-      <input type="text" value=${props.value}>
+      <label id="label"><i18n-msg msgid="keyword">msg</i18n-msg></label>
+      <input type="text" value=${props.value} />
     `
   }
 
   static get styles() {
     return [
       ThingsEditorPropertyStyles, 
-      css`label {color:red;}`
+      css`
+        #label {
+          color:red;
+        }
+      `
     ]
   }
 }
