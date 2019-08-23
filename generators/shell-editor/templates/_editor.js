@@ -1,4 +1,4 @@
-import { html } from '@polymer/lit-element'
+import { html, css } from '@polymer/lit-element'
 import { ThingsEditorProperty } from '@things-factory/board-ui/client/modeller-module'
 
 export default class <%= editorClassName %> extends ThingsEditorProperty {
@@ -12,14 +12,17 @@ export default class <%= editorClassName %> extends ThingsEditorProperty {
     }
   }
 
-  _render(props) {
+  editorTemplate(props) {
     return html`
       <input type="text" value=${props.value}>
     `
   }
 
-  static get styleTemplate() {
-    return html`label {color:red;}`
+  static get styles() {
+    return [
+      ThingsEditorPropertyStyles, 
+      css`label {color:red;}`
+    ]
   }
 }
 
