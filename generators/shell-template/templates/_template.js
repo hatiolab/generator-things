@@ -1,4 +1,4 @@
-import icon from './<%= templateName %>.png';
+import icon from '../assets/<%= templateName %>.png'
 
 export default {
   type: '<%= templateName %>',
@@ -15,4 +15,4 @@ export default {
     fillStyle: 'cyan',
     strokeStyle: 'darkgray'
   }
-};
+}
